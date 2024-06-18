@@ -1,0 +1,67 @@
+HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tab title, which changes from link to link on the site-->
+    <title>Recipe Roulette - I'm Cooked</title>
+    <!-- loading fonts, css stylesheet, and tab icon-->
+    <link href='https://fonts.googleapis.com/css?family=Borel' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+    <link href="styles.css" rel='stylesheet'>
+    <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+    <header class="space">
+        <!-- nav bar, contains the website logo (clickable & brings you to the landing page) and navigation buttons-->
+        <nav>
+            <a href="index.html">
+                <img src="images/imcookedlogo.png" alt="logo of the I'M COOKED website" width="200" height="113" class="logoalignment" alt="Hyperlinked logo of our website that brings the user back to the home page">
+            </a>
+            <a href="index.html"><button class="button headerbutton">Home</button></a>
+            <a href="reciperoulette.html"><button class="button headerbutton">Recipe Roulette</button></a>
+            <a href="cookbookcreation.html"><button class="button headerbutton">Cookbook Creation</button></a>
+            <a href="contactus.html"><button class="button headerbutton">Contact Us</button></a>
+        </nav>
+    </header>
+    <!-- div that holds images that distinguish the fridge section and the generated recipes section -->
+    <div class="heading-container">
+        <div class="clip"><img src="images/myfridge.png" alt="image to indicate that below is 'my fridge,' which is where users input the ingredients they own" width="480" height="87"></div>
+        <div class="clip"><img src="images/recipes.png" alt="image to indicate that below is where the generated recipes will be" width="480" height="87"></div>
+    </div>
+
+    <!-- this is the main container where the generator is held -->
+    <div class="main-container">
+        <!-- "left" represents the left half, which holds the user's "fridge" -->
+        <!-- this includes an input bar for ingredients, a clear all ingredients button, a generate recipes button, as well as the list of ingredients you have in your fridge -->
+        <div class="left">
+            <input type="text" id="new-ingredient" placeholder="Add an ingredient">
+            <button id="generate-recipes">Generate Recipes</button>
+            <button id="clear-ingredients">Clear All Ingredients</button>
+            <ul id="ingredient-list" class="scrollable-list"></ul>
+        <!-- "right" represents the right half, which holds the recipe generations -->  
+        <!-- this includes the list of cookable (& ALMOST cookable) recipes, the minimize button, as well as the instructions for each recipe -->            
+        <!-- the individual items are defined through the use of 'id's in our javascript -->            
+        </div>
+        <div class="right">
+            <div id="recipe-instructions"></div>
+            <div id="recipes"></div>
+            <div id="additional-ingredients"></div> 
+        </div>
+    </div>
+    <!-- calling the javascript-->
+    <script src="scripttest.js"></script>
+
+    <!-- footer, which credits the site to us and links the user to our respective instagrams -->
+    <footer>
+        <div>
+            Created by 
+            <a href="https://instagram.com/maheen.defined" target="_blank">Maheen Taher,</a> and <a href="https://instagram.com/gottalovemax06" target="_blank">Max Koenigs,</a>
+            June 2024.
+        </div>
+    </footer>
+</body>
+</html>

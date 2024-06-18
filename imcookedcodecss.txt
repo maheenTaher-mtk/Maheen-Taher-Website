@@ -1,0 +1,314 @@
+CSS:
+
+/* general formatting */
+body {
+    background-color: #665252;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Droid Serif';
+    font-size: 30px; 
+    margin: 0;
+    padding: 0;
+}
+/* navigation bar */
+nav {
+    font-size: clamp(1.875rem, 0.966rem + 4.55vw, 4.375rem); 
+    font-family: 'Borel';
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+}
+/* for sections that need bigger text */
+h2 {
+    font-size: clamp(0.625rem, 0.17rem + 2.27vw, 1.84rem);
+    font-family: 'Droid Serif';
+}
+/* footer */
+footer{
+    background-color: #4d3a3a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    width: 100%;
+    bottom: 0;
+}
+/* vvvv styling for the links present in the footer */
+footer a:link, p a:link {
+    color: #ff877d;
+    background-color: transparent;
+}
+footer a:visited, p a:visited {
+    color: #ff877d;
+    background-color: transparent;
+}
+footer a:hover, p a:hover{
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+footer a:active, p a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}
+/* ^^^^ styling for the links present in the footer */
+
+/* the section where two images are displayed before the content (for index, this is "what is im cooked"/"how does it work" and for recipe roulette, this is "my fridge"/"recipes" */
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0px auto;
+    
+}
+
+/* to clip as columns idk */
+.clip {
+    flex: 1;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* the main container that splits site content across a left box and right box */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0px auto;
+}
+/* general conditions for items that are placed in the main-container */
+.left, .right {
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    margin: 10px;
+    
+}
+/* styling for left side box. */
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #4d3a3a;
+    border: 4px solid #ff877d;
+    color: white;
+}
+/* text in p tags on both sides should be 20px */
+.left, .right p {
+    font-size: 20px;
+}
+/* input box for adding ingredients */
+.left input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+}
+/* buttons on left side, which are specifically used in recipe roulette for generating recipes and clearing all ingredients */
+.left button {
+    padding: 10px 20px;
+    background-color: #ffe78c;
+    color: #4d3a3a;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+/* ingredient list in recipe roulette */
+.left ul {
+    list-style: none;
+    padding: 0px;
+    width: 100%;
+}
+/* individual ingredient boxes in the fridge */
+.left li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #ff877d;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-inline: 20px;
+}
+/* delete ingredient buttons */
+.left li button {
+    background: none;
+    border: none;
+    color: rgb(116, 73, 73);
+    font-weight: bold;
+    cursor: pointer;
+}
+/* make ingredient list scrollable */
+.scrollable-list {
+    max-height: 300px; 
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 10px;
+    list-style-type: none;
+    background-color: #312828;
+    border: 10px solid #3b2f2f;
+}
+/* vvv scrolling styling */
+.scrollable-list li {
+    margin-bottom: 5px;
+    padding-block: 0;
+}
+.scrollable-list::-webkit-scrollbar {
+    width: 20px;
+}
+
+.scrollable-list::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 7px; 
+}
+
+.scrollable-list::-webkit-scrollbar-thumb:hover {
+    background: #ff877d; 
+}
+/* ^^^ scrolling styling */
+
+/* styling for right side box. */
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #d3d3d3;
+    border: 4px solid #000000;
+    color: black;
+    text-align: left;
+}
+/* styling for generated recipes/suggestion recipes */
+.recipe, .suggestion {
+    background-color: white;
+    color: #4d3a3a;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 0px;
+    display: flex;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+/* to align things */
+.centeralign {
+    align-items: center;
+}
+/* to decrease space between only the recipe instructions, added via javascript */
+.lineheight{
+    line-height: 20px;
+}
+/* when hovering over images */
+.recipe:hover, .suggestion:hover {
+    background-color: #4d3a3a;
+    color: #ffe78c;
+    cursor: pointer;
+}
+/* default values for the generated recipe images */
+.recipe img, .suggestion img {
+    width: 75px;
+    height: 75px;
+    margin-right: 15px;
+    border: 1px solid black;
+    transition-duration: 0.4s;
+}
+/*when the recipes are hovered over, the images should expand*/
+.recipe:hover img, .suggestion:hover img {
+    width: 150px;   
+    height: 150px;
+    cursor: pointer;
+}
+/*setting the cursor to default*/
+.expanded {
+    cursor: default;
+}
+/*expanding the image*/
+.expanded img{
+    width: 150px;   
+    height: 150px;
+}
+/* styling for site instructions */
+.siteinstructions {
+    background-color: white;
+    font-size: 20px;
+    color: #4d3a3a;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+/* defaults for the images that are initially hidden */
+.siteinstructions img {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    margin-right: 15px;
+    transition-duration: 0.4s;
+}
+/* show the images and they expand when the instruction is hovered over */
+.siteinstructions:hover img {
+    opacity: 1;
+    width: 150px;   
+    height: 150px;
+    background-color: #ffffff; /* Change background color on hover */
+}
+/* default button styling */
+.button {
+    border: none;
+    color: white;
+    padding: 16px 0px;
+    margin: 0px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Droid Serif';
+    width: clamp(2rem, 10rem, 15vw);
+}
+/* nav button styling */
+.headerbutton {
+    background-color: #665252; 
+    color: #ffffff; 
+    border: 2px solid #ff877d;
+}
+/* animation for when nav button is hovered over */
+.headerbutton:hover {
+    background-color: #ff877d;
+    color: #ffe492;
+}
+/* aligns logo */
+.logoalignment {
+    padding-top: 60px;
+    margin-right: 150px;
+}
+
+/* vvv styling for the input bar to change color w/ an animation */
+#new-ingredient {
+    transition: background-color 0.2s ease;
+}
+
+#new-ingredient.alreadyadded::placeholder {
+    color:red
+}
+/* ^^^ styling for the input bar to change color w/ an animation */

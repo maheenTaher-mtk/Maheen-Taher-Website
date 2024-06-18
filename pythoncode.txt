@@ -1,0 +1,219 @@
+#Maheen Taher, ICS2O FINAL CULMINATING PROJECT, PART 4+ (J. Wang, 2021)
+#Introduction to program (explaining the game)
+
+import random #Import the "random" module to later allow the computer to generate a random number between 1-100
+import sys #Import the "sys" module so that the user can exit the program later
+import time #Import the "time" module for keeping track of elapsed time later
+
+
+
+#Defining/storing the game as a function for ease of replaying the game
+def guessingGameCompPicks():
+#Creating a win variable that is set to False which will exit the loop when the player wins (when set to True)
+    win = False 
+#Setting up playCount variable to keep track of tries
+    playCount = 0 
+
+#Printing instructions for the game
+    print ("Alright! Here's how the game will go: I, the computer, will generate a random number from a range that YOU decide.")
+    print ("I'll let you know if your number is greater or lower than whatever number I pick, just as a way to help you out.")
+    print ("Depending on how long it takes for you to guess, your performance will be rated out of 5 stars!")
+    
+#Generating a random number using the random module from the range of two inputs from the user (startVal and endVal)
+    startVal = int(input("Please input what you would like the starting value to be:"))
+    endVal = int(input("Nice, now the ending value?"))
+    compNum = random.randint(startVal, endVal)
+    print ("Nice, I have picked a number. It is now time for you to guess! Good luck!")
+    
+#Starting the timer with the time module
+    start = time.time()
+#While loop that only ends when win is set to True
+    while (win == False):
+#Prompting the user to guess a number
+        print ("Please guess a number between", startVal, "and", endVal)
+        userGuess = int(input("Your Guess:")) 
+#Breaking the loop when user correctly guesses the computer's number
+        if userGuess == compNum:
+            win = True
+#Adding 1 to the playcount (as the final guess counts as an attempt)
+            playCount = playCount + 1 
+#Ending the timer
+            end = time.time()
+#Creating guessTime, which is equal to the total amount of time required by the user to guess the number, and rounding it to two decimals
+            guessTime = (end - start)
+            roundedGuessTime = f"{guessTime:.2f}"
+            
+#If and elif statements that tell them their time, how many times they guessed, and how many points they got based on their guess time
+            if (guessTime) < 5:
+                print ("Wait, WHAT!? You got it in", roundedGuessTime, "seconds, which means you got it in under 5 seconds! Your total number of tries was", playCount, "and your star count is: ⭐⭐⭐⭐⭐")
+            elif (guessTime) < 10:
+                print ("WOW! You got it in", roundedGuessTime, "seconds, which means you got it in under 10 seconds! Your total number of tries was", playCount, "and your star count is: ⭐⭐⭐⭐")
+            elif (guessTime) < 15:
+                print ("NICE! You got it in", roundedGuessTime, "seconds, which means you got it in under 15 seconds! Your total number of tries was", playCount, "and your star count is: ⭐⭐⭐")
+            elif (guessTime) < 25:
+                print ("Good attempt! You got it in", roundedGuessTime, "seconds, which means you got it in under 25 seconds! Your total number of tries was", playCount, "and your star count is: ⭐⭐")
+            else:
+                print ("Uhh.... it took you", roundedGuessTime, "seconds, which is more than 25 seconds to get that?... okay... Your total number of tries was", playCount, "and, sorry, but you get a mere: ⭐")
+#Elif statements that tell the user that their guess was either too high or too low and adding an attempt to playCount       
+        elif userGuess > compNum: 
+            print ("Your number was incorrect; too high!") 
+            playCount = playCount + 1 
+        elif userGuess < compNum: 
+            print ("Your number was incorrect; too low!")
+            playCount = playCount + 1
+#Creating resetGame variable to ask the user if they want to replay the game, play as the opposite role, or exit the program completely
+    resetGame = int(input("Send a 1 if you want to play again, a 2 to be the number picker, a 3 to watch me play against another computer, or any other number to close the program!")) 
+    if resetGame == 1:
+        guessingGameCompPicks()
+    elif resetGame == 2:
+        guessingGamePlayerPicks()
+    elif resetGame == 3:
+        guessingGameCvsC()
+    else:
+        sys.exit("Play again soon!")
+
+        
+#SECOND GAME
+#Defining/storing the SECOND version of the game (version where the player picks the number) as a function for ease of replaying the game
+
+def guessingGamePlayerPicks():
+#Creating a win variable that is set to False which will exit the loop when the player wins (when set to True)
+    win = False
+#Printing instructions for the game
+    print ("Alright! Here's how the game will go: You, the player, will pick a number and designate a range (that includes the number you picked) for me to guess from!")
+    print ("I, the computer, will generate random numbers and it will be your job to tell me if my guess was either TOO HIGH, TOO LOW, or CORRECT!")
+#Prompting and getting the user's desired number as well as a range (two inputs) for the computer to guess from
+    userNum = int(input("Select a number for me to guess! (don't worry, I won't know the number if you type it here!):"))
+    userNumStartVal = int(input("Okay, now please provide a range of two numbers for me to try and guess from. For example, if your number is 35, you could tell me the start value is 10 and end value is 100. Again, don't worry about typing it here. The range which I will guess from will start at:"))
+    userNumEndVal = int(input("Okay, and the range will end at:"))
+#While loop that only ends when win is set to True
+    while (win == False):
+#Generating a random number in between the range provided by the user
+        compGuess = random.randint(userNumStartVal, userNumEndVal)
+#Telling the user the computer's guess and prompting them for feedback (too high, low, or corect)
+        print ("My guess is", compGuess, "!")
+        userResponse = str(input("Does that happen to be CORRECT, or was that TOO HIGH or TOO LOW?"))
+        userResponse = userResponse.upper() #auto-capitalizing
+#While loop that only ends when win is set to True (this loop will continuously ask for the user's feedback and guess again based off that feedback over and over in order to narrow down the range. 
+        while (win == False):
+#If user tells the computer that it's guess is right, loop breaks
+            if userResponse == "CORRECT":
+                win = True
+
+#Elif the user tells the computer that it's guess is too low, it will:
+            elif userResponse == "TOO LOW":
+#1. Reset the starting value of the range to the previous guess (storing the value of the last guess in the userNumStartVal variable so that compGuess can be reused)
+                userNumStartVal = compGuess
+#2. Generate a new random number under the old variable's name using the new starting value and ending value(in order for the code to be repeatable)
+                compGuess = random.randint(compGuess, userNumEndVal)
+#3. Tells the user their guess and prompts the user for feedback (if the guess was too high, low, or correct)
+                print ("My guess is", compGuess, "!")
+                userResponse = str(input("Does that happen to be CORRECT, or was that TOO HIGH or TOO LOW?"))
+                userResponse = userResponse.upper()
+
+#(Repeat of the last elif statement, but regarding the end value of the range)
+#Elif user tells the computer that it's guess is too high, it will:
+            elif userResponse == "TOO HIGH":
+#1. Reset the ending value of the range to the previous guess (storing the value of the last guess in the userNumEndVal variable so that compGuess can be reused)
+                userNumEndVal = compGuess
+#2. Generate a new random number under the old variable's name using the new ending value and starting value(in order for the code to be repeatable)
+                compGuess = random.randint(userNumStartVal, compGuess)
+#3. Tells the user their guess and prompts the user for feedback (if the guess was too high, low, or correct)
+                print ("My guess is", compGuess, "!")
+                userResponse = str(input("Does that happen to be CORRECT, or was that TOO HIGH or TOO LOW?"))
+                userResponse = userResponse.upper()
+#Extra failsafe code that asks for another response (in the event that they input an invalid response that doesn't follow the correct spelling or spacing)
+            else:
+                print ("Unfortunately, your input was invalid. Remember that all that matters is spelling (and a single space between 'too' and 'high' or 'low'). The casing, like Title Casing, UPPERCASING, lowercasing, etc., do not matter. Your options are either:")
+                print ("Correct")  
+                print ("Too high")
+                print ("Too low")
+                userResponse = str(input("Now, please tell me: was my guess CORRECT, TOO HIGH, or TOO LOW?"))
+                userResponse = userResponse.upper()
+#Computer wins
+    print ("Wohoo! I got it!")
+#Creating resetGame variable to ask the user if they want to replay the game, play as the opposite role, or exit the program completely
+    resetGame = int(input("Send a 1 if you want to play again, 2 if you want to be the guesser, a 3 to watch me play against another computer, or any other number to close the program!")) #User gets the choice to either input a 1, which will call the game function again (guessingGame), OR they may press anything else to trigger line 23
+    if resetGame == 1: #If statement where if the user chose an input of 1 for resetGame, the guessingGameByPlayer function will be called again, restarting the game from scratch
+        guessingGamePlayerPicks()
+    elif resetGame == 2:
+        guessingGameCompPicks()
+    elif resetGame == 3:
+        guessingGameCvsC()
+    else: #If the user inputs anything "else", the program will use the sys module from earlier to exit the system with a message that says to play again soon
+        sys.exit("Play again soon!")
+
+#THIRD GAME
+def guessingGameCvsC():
+        win = False 
+        print ("PICK A RANGE FOR ME TO GUESS FROM, COMP 1!")
+        #Start and end value parameters (parameters over 1000 take the computers too long to figure out)    
+        startVal = random.randint(-1000, 1000)
+        endVal = random.randint(-1000, 1000)
+        while startVal > endVal:
+            endVal = random.randint(-1000, 1000)
+        time.sleep(2)
+        print ("Pick a number between", startVal, "and", endVal, "!")
+        compNum = random.randint(startVal, endVal)
+        time.sleep(2)
+        print ("NICE, I HAVE PICKED A NUMBER! IT IS TIME FOR YOU TO GUESS, COMP 1!")
+#While loop that only ends when win is set to True
+        while (win == False):
+            compGuess = random.randint(startVal, endVal)
+            print ("My guess is", compGuess, "!")
+            time.sleep(1)
+            if compGuess == compNum:
+                print ("WOW! YOU GOT IT! NICE JOB! THE NUMBER WAS INDEED", compNum, "!")
+                win = True
+            elif compGuess < compNum:
+                print ("TOO LOW! TRY AGAIN!")
+                startVal = compGuess + 1
+                compGuess = random.randint(startVal, endVal)
+                time.sleep(1)
+            elif compGuess > compNum:
+                print ("TOO HIGH! TRY AGAIN!")
+                endVal = compGuess - 1
+                compGuess = random.randint(startVal, endVal)
+                time.sleep(1)
+
+        resetGame = int(input("Send a 1 if you want to watch me and Comp 2 play again, a 2 if you want to be the guesser, a 3 if you want me to guess a number you pick, or any other number to exit the program!"))
+    
+        if resetGame == 1:
+            guessingGameCvsC()
+        elif resetGame == 2:
+            guessingGameCompPicks()
+        elif resetGame == 3:
+            guessingGamePlayerPicks()
+        else:
+            sys.exit("Play again soon!")
+
+#CompVComp Dialog and Calling
+def guessingGameCvsCDialog():
+#Creating a win variable that is set to False which will exit the loop when the player wins (when set to True)
+    win = False 
+#Setting up playCount variable to keep track of tries
+    playCount = 0
+    print ("I guess I'll play with my good old friend Computer 2! He's very loud though... Introduce yourself Comp 2!")
+    time.sleep(3)
+    print ("HI, I'M COMPUTER 2! LETS PLAY THE GUESSING GAME! I'M GOING TO PICK A NUMBER AND YOU WILL GUESS IT, COMPUTER 1!")
+    time.sleep(3)
+    #Creating a win variable that is set to False which will exit the loop when the player wins (when set to True)
+    guessingGameCvsC()
+        
+            
+
+                
+        
+#Starting up the program (prompting/asking user which game they want to play first and calling the designated function based on their input)
+print ("Welcome to the number guessing game! Which version of the game would you like to play?")
+print ("1. You decide the number and the computer (me) will be guessing your number")
+print ("2. The computer (me) will decide the number and you will be guessing it")
+print ("3. The computer (me) will play with another computer")
+whichGame = int(input("Please enter the number of which type of game you'd like to play, or any other number to exit the program:"))
+if whichGame == 1:
+    guessingGamePlayerPicks()
+elif whichGame == 2:
+    guessingGameCompPicks()
+elif whichGame == 3:
+    guessingGameCvsCDialog()
+else: sys.exit("Play again soon!") #using sys module to exit the game

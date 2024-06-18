@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maheen Taher ICS4</title>
+   
+    <link href='https://fonts.googleapis.com/css?family=Borel' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Contrail One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
+    <style>
+        body {background-color: #9bb1ff; text-align: center; color: rgb(50, 11, 158); font-family: 'Contrail One'; font-size: 21px; padding: 30px;}
+        header {color: #5465ff; }
+        p {text-align: left;
+
+        }
+        img {border: 7px solid #5465ff;}
+        h1 {font-size: clamp(1.875rem, 0.966rem + 4.55vw, 4.375rem); font-family: 'Borel';}
+        nav {font-size: clamp(0.625rem, 0.17rem + 2.27vw, 1.875rem); font-family: 'Contrail One'; padding-bottom: 40px;}
+        hr {left: 0;
+            bottom: 0;
+            width: 60%;
+            background-color: #6c8cfe;
+            text-align: center;
+            border: 4px;
+            padding: 4px; /* Adjust padding as needed */
+            }
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #5465ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0; /* Adjust padding as needed */
+            font-size: 18px;}
+        object {overflow-y: scroll; border: 7px solid #5465ff;}
+        .headingDef {font-size: 30px; font-family: 'Alatsi'; margin: 0px}
+        .textDef {font-size: 20px; font-family: 'Alatsi';}
+        .textHighlight {font-family: 'Borel'; color: #5465ff;}
+        .space {line-height:60%;}
+        .textSpacing {line-height:90%;}
+        .container {
+            display: flex; /* Use flexbox layout */
+            align-items: center; /* Center items vertically */;
+            justify-content: center;
+            padding:30px;
+            column-gap: 40px;
+        }
+        .align {text-align: center;}
+            a:visited {color: rgb(50, 11, 158);}
+            a:link {color: rgb(50, 11, 158);}
+            a:active {color:white}
+        .negativemargin {margin-top: -10px;}
+        .verynegativemargin {margin-top: -40px;}
+        
+    </style>
+</head>
+
+<body>
+    <!-- Heading, which displays my name and links to the different pages of the site-->
+    <header class="space">
+        <h1> maheen taher</h1>
+        <nav> 
+            <a href="index.html">HOME</a> &nbsp &nbsp &nbsp &nbsp 
+            <a href="aboutme.html">ABOUT ME</a> &nbsp &nbsp &nbsp &nbsp 
+            <a href="mywork.html">MY WORK</a> &nbsp &nbsp &nbsp &nbsp
+            <a href="mymusic.html">MY MUSIC</a> &nbsp &nbsp &nbsp &nbsp
+            <a href="contactme.html">CONTACT ME</a>
+        </nav>
+        <hr>
+    </header>
+
+    <div class="headingDef"> 
+        <span class="spacing"> Let's take a look at some of </span>
+        <span class="textHighlight">my best work!</span> <hr class="negativemargin">
+    </div>
+    
+    <h2> 1: Number Guessing Game (Grade 10 Computer Science Python Project)</h2>
+    <div class="negativemargin">
+        <div class="container">
+            <p class="textDef negativemargin" style="line-height: 40px">&nbsp &nbsp &nbsp &nbsp &nbspI took computer science in grade 10, which is when I first learned how to code in python. I am most definitely a bit rusty now, but back then, I had a lot of fun making simple games. Here's one where you can either let a computer guess a number you select, try guessing a number the computer selects, or watch two computers pick and guess. <br> <br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspBelow, you can scroll through my code!
+                <br> <br>
+                <object data="pythoncode.txt" width="100%">
+                Not supported
+                </object>
+            </p>
+            </p>
+            <img src="images/pythonCodeScreenshot.png" width="700px" height="auto" alt="An image of an ARDUINO board controlling LED lights">
+        </div>
+        <p class="negativemargin" style="text-align:right; padding-right: 80px;"> ▲ ▲ &nbsp An excerpt test-run of one of the game modes* &nbsp ▲ ▲</p>
+    </div>
+
+    <h2 style="padding-top: 100px;"> 2: Arduino-Powered Lock Box (Grade 11 Computer Engineering Culminating)</h2>
+    <div class="verynegativemargin">
+        <div class="container">
+            <p class="textDef" style="line-height: 30px">&nbsp &nbsp &nbsp &nbsp &nbspIn grade 11, I took a computer engineering course where the final culminating was to code an arduino board to utilize components in order to solve a real-world problem. My group decided to make a pinpad-operated lockbox, which activated a microservo that opened the box only after recieving the correct passcode. <br> <br> &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Below, you can scroll through my code!
+                <br> <br>
+                <object data="arduinocode.txt" width="100%">
+                Not supported
+                </object>
+            </p>
+            </p>
+            <img src="images/arduinosetup.png" width="540px" height="auto" alt="An image of an ARDUINO board controlling LED lights">
+        </div>
+        <p class="verynegativemargin" style="text-align:right; padding-right: 100px;"> ▲ ▲ &nbsp An older project, not the final* &nbsp ▲ ▲</p>
+    </div>
+    
+    <h2 style="padding-top: 100px;"> 3: RAM Game (Really Awesome Memory Game)</h2>
+    <div class="verynegativemargin">
+        <div class="container">
+            <p class="textDef" style="line-height: 45px;">&nbsp &nbsp &nbsp &nbsp &nbsp RAM Game is a colour memory game that me and Jane Mark worked tirelessly on in grade 12. The user is initially shown a sequence of two colours and is then asked to replicate the sequence. With each new round, the size of the sequence increases. <br> <br> &nbsp &nbsp &nbsp &nbsp &nbsp The premise of this project was to experience paired programming with a partner in order to get a better scope of how coding projects are built. We utilized and built upon our knowledge of GUI and Java swing concepts that we learned in class in order to create a flawless user experience. Our biggest challenge throughout this project was the fact that my laptop was being unable to render the app, which meant that we had to take turns coding on a single laptop. After we had reached our MVP goals (making the project functional), we decided it would be best if I designed assets for the game while Jane handled the coding of our stretch goals. This workflow allowed us to add several different accessibility and customization options for the home screen, the game's colour theme, as well as the background music, meeting most of (if not all) of our stretch goals. In the future, we could add modes based on shapes/images rather than just colours, custom keybinds, as well as the option to increase the number of possible answers (currently only four colours but allowing the user to add more would mean more of a challenge).
+                <br> <br>
+                &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp Below, you can scroll through an excerpt of our code! <br> <br>
+                <object data="ramgamecode.txt" width="100%">
+                Not supported
+                </object>
+                
+            </p>
+            </p>
+            <img src="images/ramgame.png" width="540px" height="auto" alt="A collage of screenshots of RAM game">
+        </div>
+        <p class="verynegativemargin" style="text-align:right; padding-right: 100px;"> <br> ▲ ▲ Screenshots of our game ▲ ▲ &nbsp &nbsp &nbsp &nbsp &nbsp</p>
+    </div>
+
+    <h2 style="padding-top: 100px;"> 4: "I'm Cooked", a recipe generation website</h2>
+    <div class="verynegativemargin">
+
+        <div class="container">
+            <p class="textDef" style="line-height: 40px;">&nbsp &nbsp &nbsp &nbsp &nbsp "I'm Cooked" is a recipe generation website made by me and Max Koenigs that is aimed towards helping cooks of all skill levels find recipes to try! The idea is simple: in your very own virtual 'fridge,' you list all of the ingredients you own at home. You can then generate a list of recipes that each have instructions, all tailored to what YOU have. <br> <br> &nbsp &nbsp &nbsp &nbsp &nbsp When planning this project, Max and I decided it would be best if he handled the back-end side of our project while I handled the front-end. We used concepts such as arrays/lists, classes, inheritence, and also css styling in order to bring the concept of our site to life. Thankfully, we were able to nail down our MVP goals, which included the generator as well as the aesthetic layout and animations, which were close enough to the vibe that we wanted. Unfortunately, we were unable to add a lot of our stretch goals like recipe filters and misspelling detection. A future goal of ours is creating the "Cookbook Creation" section (another one of our stretch goals), which would allow users to share their own recipes and discover other users' recipes.
+                <br> <br>
+                &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp Below, you can scroll through an excerpt of our code! <br> <br>
+                <object data="imcookedcodecss.txt" width="100%">
+                Not supported
+                </object>
+
+                <object data="imcookedcodehtml.txt" width="100%">
+                    Not supported
+                    </object>
+
+                <object data="imcookedcodejs.txt" width="100%">
+                    Not supported
+                    </object>
+                
+            </p>
+            </p>
+            <img src="images/imcooked.png" width="540px" height="auto" alt="A collage of screenshots of RAM game">
+        </div>
+        <p class="verynegativemargin" style="text-align:right; padding-right: 100px;"> ▲ ▲ Screenshots of our site ▲ ▲ &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
+    </div>
+
+
+
+    <h2 style="padding-top: 100px;"> 5: More to come...!</h2>
+
+    <!-- footer!!! -->
+    <footer>
+        <div>
+        Created by 
+        <a href="https://instagram.com/maheen.defined" target="_blank">Maheen Taher,
+        </a>  February 2024.
+        </div>
+    </footer>
+
+</body>
+</html>
